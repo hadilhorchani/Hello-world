@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We are here together</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Opinion Exchange</h1>
+    <form id="opinionForm">
+        <label for="objectName">Object:</label>
+        <input type="text" id="objectName" name="objectName" required>
+        <label for="opinion">Opinion:</label>
+        <input type="text" id="opinion" name="opinion" required>
+        <button type="submit">Submit Opinion</button>
+    </form>
+    <div id="opinions"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
