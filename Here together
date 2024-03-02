@@ -1,0 +1,57 @@
+// Define a class for the Opinion Exchange
+class OpinionExchange {
+    constructor() {
+        this.objects = {};
+    }
+//a methode help to add object to chatt about 
+    addObject(objectName) {
+        if (!this.objects[objectName]) {
+            this.objects[objectName] = [];
+            console.log(`"${objectName}" added your opinion .`);
+        } else {
+            console.log(`"${objectName}" already exists in the Opinion Exchange.`);
+        }
+    }
+
+    addOpinion(objectName, opinion) {
+        if (this.objects[objectName]) {
+            this.objects[objectName].push(opinion);
+            console.log(`Opinion added for "${objectName}": "${opinion}"`);
+        } else {
+            console.log(`"${objectName}" does not exist in the Opinion Exchange.`);
+        }
+    }
+//methode to get opinion as an input 
+    getOpinions(objectName) {
+        if (this.objects[objectName]) {
+            console.log(`Opinions about "${objectName}":`);
+            this.objects[objectName].forEach((opinion, index) => {
+                console.log(`${index + 1}. ${opinion}`);
+            });
+        } else {
+            console.log(`"${objectName}" does not exist in the Opinion Exchange.`);
+        }
+    }
+}
+
+// Initialize OpinionExchange object
+const opinionExchange = new OpinionExchange();
+
+// Function to handle form submission
+const form = document.getElementById('opinionForm');
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const objectName = document.getElementById('objectName').value;
+    const opinion = document.getElementById('opinion').value;
+
+    // Add object to exchange if it doesn't exist
+    opinionExchange.addObject(objectName);
+
+    // Add opinion
+    opinionExchange.addOpinion(objectName, opinion);
+
+    // Clear form fields
+    document.getElementById('objectName').value = '';
+    document.getElementById('opinion').value = '';
+});
