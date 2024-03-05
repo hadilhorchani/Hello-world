@@ -55,3 +55,17 @@ form.addEventListener('submit', function(event) {
     document.getElementById('objectName').value = '';
     document.getElementById('opinion').value = '';
 });
+
+function showNotification(message, type) {
+    const notificationDiv = document.createElement('div');
+    notificationDiv.classList.add('notification', type);
+    notificationDiv.textContent = message;
+
+    const notificationsContainer = document.getElementById('notifications');
+    notificationsContainer.appendChild(notificationDiv);
+
+    // Remove the notification after a certain time
+    setTimeout(() => {
+        notificationsContainer.removeChild(notificationDiv);
+    }, 3000); // 3000 milliseconds (3 seconds) - adjust as needed
+}
