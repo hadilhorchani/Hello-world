@@ -1,0 +1,35 @@
+class OpinionExchange {
+    constructor() {
+        this.objects = {};
+    }
+
+    addObject(objectName) {
+        if (!this.objects[objectName]) {
+            this.objects[objectName] = [];
+            return `"${objectName}" added to the Opinion Exchange.`;
+        } else {
+            return `"${objectName}" already exists in the Opinion Exchange.`;
+        }
+    }
+
+    addOpinion(objectName, opinion) {
+        if (this.objects[objectName]) {
+            this.objects[objectName].push(opinion);
+            return `Opinion added for "${objectName}": "${opinion}"`;
+        } else {
+            return `"${objectName}" does not exist in the Opinion Exchange.`;
+        }
+    }
+
+    getOpinions(objectName) {
+        if (this.objects[objectName]) {
+            let opinions = this.objects[objectName].map((opinion, index) => `${index + 1}. ${opinion}`).join('\n');
+            return `Opinions about "${objectName}":\n${opinions}`;
+        } else {
+            return `"${objectName}" does not exist in the Opinion Exchange.`;
+        }
+    }
+}
+
+// Export OpinionExchange for testing
+module.exports = OpinionExchange;
