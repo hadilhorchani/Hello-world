@@ -16,6 +16,7 @@
         <button type="submit">Submit Opinion</button>
     </form>
     <div id="opinions"></div>
+    <div id="notifications"></div>
 
     <script src="script.js"></script>
 </body>
