@@ -1,23 +1,30 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class OpinionExchangeTest {
-    private OpinionExchange opinionExchange;
-
-    @BeforeEach
-    public void setUp() {
-        opinionExchange = new OpinionExchange();
-    }
 
     @Test
     public void testAddObject() {
-        opinionExchange.addObject("Book");
-        assertTrue(opinionExchange.getObjects().containsKey("Book"));
+        OpinionExchange opinionExchange = new OpinionExchange();
+        opinionExchange.addObject("Object1");
+        assertEquals(1, opinionExchange.objects.size());
     }
 
     @Test
     public void testAddOpinion() {
-        opinionExchange.addObject("Book");
-        opinionExchange.addOpinion
+        OpinionExchange opinionExchange = new OpinionExchange();
+        opinionExchange.addObject("Object1");
+        opinionExchange.addOpinion("Object1", "This is an opinion.");
+        assertEquals(1, opinionExchange.objects.get("Object1").size());
+    }
+
+    @Test
+    public void testGetOpinions() {
+        OpinionExchange opinionExchange = new OpinionExchange();
+        opinionExchange.addObject("Object1");
+        opinionExchange.addOpinion("Object1", "Opinion 1");
+        opinionExchange.addOpinion("Object1", "Opinion 2");
+        opinionExchange.getOpinions("Object1");
+        
+    }
+}
