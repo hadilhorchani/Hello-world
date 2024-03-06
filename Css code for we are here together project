@@ -74,3 +74,16 @@ button:hover {
     background-color: #f44336;
     color: white;
 }
+.subject {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer; /* Add cursor pointer to indicate clickability */
+}
+
+.subject:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+
