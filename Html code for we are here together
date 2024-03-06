@@ -17,6 +17,8 @@
     </form>
     <div id="opinions"></div>
     <div id="notifications"></div>
+    <div class="subject"></div>
+
 
     <script src="script.js"></script>
 </body>
