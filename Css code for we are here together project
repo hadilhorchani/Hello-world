@@ -8,7 +8,8 @@ body {
 h1 {
     text-align: center;
     margin-top: 40px;
-    color: #333;
+    color: blue;
+    font-family :'Arial';
 }
 
 form {
@@ -17,14 +18,14 @@ form {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: pink;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 label {
     display: block;
     margin-bottom: 15px;
-    color: #555;
+    color: green;
 }
 
 input[type="text"] {
@@ -32,14 +33,14 @@ input[type="text"] {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 button {
     padding: 10px 20px;
     background-color: #007bff;
-    color: #fff;
-    border: none;
+    color: orange ;
+    border: 1px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -55,7 +56,7 @@ button:hover {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: grey;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .notification {
@@ -73,4 +74,3 @@ button:hover {
     background-color: #f44336;
     color: white;
 }
-
