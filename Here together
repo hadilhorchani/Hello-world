@@ -71,33 +71,7 @@ subjectElements.forEach(subjectElement => {
     });
 });
 
-// Function to handle form submission
-const form = document.getElementById('opinionForm');
-form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
 
-    const objectName = document.getElementById('objectName').value;
-    const opinion = document.getElementById('opinion').value;
-
-    // Add object to exchange if it doesn't exist
-    opinionExchange.addObject(objectName);
-
-    // Add opinion
-    opinionExchange.addOpinion(objectName, opinion);
-
-    // Clear form fields
-    document.getElementById('objectName').value = '';
-    document.getElementById('opinion').value = '';
-});
-});
-const subjectElements = document.querySelectorAll('.subject');
-
-subjectElements.forEach(subjectElement => {
-    subjectElement.addEventListener('click', function(event) {
-        const selectedSubject = event.target.textContent; // Get the text of the clicked subject
-        document.getElementById('objectName').value = selectedSubject; // Update form field with selected subject
-    });
-});
 
 
 
