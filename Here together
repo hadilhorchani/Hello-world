@@ -3,31 +3,32 @@ class OpinionExchange {
     constructor() {
         this.objects = {};
     }
-//a methode help to add object to chatt about 
-    
-addObject(objectName) {
-    if (!this.objects[objectName]) {
-        this.objects[objectName] = [];
-        console.log(`"${objectName}" added to the Opinion Exchange.`);
-        showNotification(`"${objectName}" added to the Opinion Exchange.`, 'success');
-    } else {
-        console.log(`"${objectName}" already exists in the Opinion Exchange.`);
-        showNotification(`"${objectName}" already exists in the Opinion Exchange.`, 'error');
-    }
-}
 
+    // Method to add object to chat about 
+    addObject(objectName) {
+        if (!this.objects[objectName]) {
+            this.objects[objectName] = [];
+            console.log(`"${objectName}" added to the Opinion Exchange.`);
+            showNotification(`"${objectName}" added to the Opinion Exchange.`, 'success');
+        } else {
+            console.log(`"${objectName}" already exists in the Opinion Exchange.`);
+            showNotification(`"${objectName}" already exists in the Opinion Exchange.`, 'error');
+        }
+    }
+
+    // Method to add opinion
     addOpinion(objectName, opinion) {
-    if (this.objects[objectName]) {
-        this.objects[objectName].push(opinion);
-        console.log(`Opinion added for "${objectName}": "${opinion}"`);
-        showNotification(`Opinion added for "${objectName}": "${opinion}"`, 'success');
-    } else {
-        console.log(`"${objectName}" does not exist in the Opinion Exchange.`);
-        showNotification(`"${objectName}" does not exist in the Opinion Exchange.`, 'error');
+        if (this.objects[objectName]) {
+            this.objects[objectName].push(opinion);
+            console.log(`Opinion added for "${objectName}": "${opinion}"`);
+            showNotification(`Opinion added for "${objectName}": "${opinion}"`, 'success');
+        } else {
+            console.log(`"${objectName}" does not exist in the Opinion Exchange.`);
+            showNotification(`"${objectName}" does not exist in the Opinion Exchange.`, 'error');
+        }
     }
-}
 
-//methode to get opinion as an input 
+    // Method to get opinions as an input 
     getOpinions(objectName) {
         if (this.objects[objectName]) {
             console.log(`Opinions about "${objectName}":`);
@@ -36,7 +37,7 @@ addObject(objectName) {
             });
         } else {
             console.log(`"${objectName}" does not exist in the Opinion Exchange.`);
-showNotification(`"${objectName}" does not exist in the Opinion Exchange.`, 'error');
+            showNotification(`"${objectName}" does not exist in the Opinion Exchange.`, 'error');
         }
     }
 }
@@ -44,13 +45,25 @@ showNotification(`"${objectName}" does not exist in the Opinion Exchange.`, 'err
 // Initialize OpinionExchange object
 const opinionExchange = new OpinionExchange();
 
-// Function to handle form submission
+// Cache frequently accessed DOM elements
 const form = document.getElementById('opinionForm');
-form.addEventListener('submit', function(event) {
+const objectNameInput = document.getElementById('objectName');
+const opinionInput = document.getElementById('opinion');
+const notificationsContainer = document.getElementById('notifications');
+const subjectElements = document.querySelectorAll('.subject');
+
+// Add event listeners
+form.addEventListener('submit', handleFormSubmission);
+subjectElements.forEach(subjectElement => {
+    subjectElement.addEventListener('click', handleSubjectClick);
+});
+
+// Function to handle form submission
+function handleFormSubmission(event) {
     event.preventDefault(); // Prevent form submission
 
-    const objectName = document.getElementById('objectName').value;
-    const opinion = document.getElementById('opinion').value;
+    const objectName = objectNameInput.value;
+    const opinion = opinionInput.value;
 
     // Add object to exchange if it doesn't exist
     opinionExchange.addObject(objectName);
@@ -59,28 +72,22 @@ form.addEventListener('submit', function(event) {
     opinionExchange.addOpinion(objectName, opinion);
 
     // Clear form fields
-    document.getElementById('objectName').value = '';
-    document.getElementById('opinion').value = '';
-// Add event listeners to clickable subject/object elements
-const subjectElements = document.querySelectorAll('.subject');
+    objectNameInput.value = '';
+    opinionInput.value = '';
+}
 
-subjectElements.forEach(subjectElement => {
-    subjectElement.addEventListener('click', function(event) {
-        const selectedSubject = event.target.textContent; // Get the text of the clicked subject
-        document.getElementById('objectName').value = selectedSubject; // Update form field with selected subject
-    });
-});
+// Function to handle subject click events
+function handleSubjectClick(event) {
+    const selectedSubject = event.target.textContent;
+    objectNameInput.value = selectedSubject;
+}
 
-
-
-
-
+// Function to show notification
 function showNotification(message, type) {
     const notificationDiv = document.createElement('div');
     notificationDiv.classList.add('notification', type);
     notificationDiv.textContent = message;
 
-    const notificationsContainer = document.getElementById('notifications');
     notificationsContainer.appendChild(notificationDiv);
 
     // Remove the notification after a certain time
