@@ -19,14 +19,14 @@
     <div id="notifications"></div>
     <div class="subject"></div>
 
-    <!-- Include Jasmine test runner and scripts -->
+    <!--  Jasmine test runner and scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.9.0/jasmine.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.9.0/jasmine-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.9.0/boot.min.js"></script>
-    <!-- Include your Jasmine test files -->
+    <!--  Jasmine test files -->
     <script src="jasmine/opinionExchangeSpec.js"></script>
 
-    <!-- Your original JavaScript code -->
+    
     <script src="script.js"></script>
 </body>
 </html>
