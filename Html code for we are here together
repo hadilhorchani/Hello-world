@@ -24,7 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.9.0/jasmine-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.9.0/boot.min.js"></script>
     <!--  Jasmine test files -->
-    <script src="jasmine/opinionExchangeSpec.js"></script>
+    <script src="jasmine.js"></script>
 
     
     <script src="script.js"></script>
